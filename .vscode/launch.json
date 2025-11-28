@@ -11,8 +11,8 @@
             "program": "${workspaceFolder}/runner/main.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "env": {"PYTHONPATH": "${workspaceFolder}"},
-            "cwd": "${fileDirname}"
+            "env": { "PYTHONPATH": "${workspaceFolder}" },
+            "cwd": "${workspaceFolder}/runner"
         },
         {
             "name": "MockedDevice",
@@ -21,8 +21,8 @@
             "program": "${workspaceFolder}/runner/mocked_device.py",
             "console": "integratedTerminal",
             "justMyCode": true,
-            "env": {"PYTHONPATH": "${workspaceFolder}"},
-            "cwd": "${fileDirname}"
+            "env": { "PYTHONPATH": "${workspaceFolder}" },
+            "cwd": "${workspaceFolder}/runner"
         },
     ]
 }

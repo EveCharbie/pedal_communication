@@ -1,8 +1,8 @@
-from pedal_communication.mockers import DeviceMocker
+from pedal_communication.mockers import PedalDeviceMocker
 
 
 def main():
-    mocker = DeviceMocker()
+    mocker = PedalDeviceMocker()
 
     for i in range(3):
         mocker.run()

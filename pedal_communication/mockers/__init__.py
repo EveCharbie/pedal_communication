@@ -1,7 +1,5 @@
-from .device_mocker import DeviceMocker
-from .tcp_device_mock import TcpDeviceMock
+from .pedal_device_mocker import PedalDeviceMocker
 
 __all__ = [
-    DeviceMocker.__name__,
-    TcpDeviceMock.__name__,
+    PedalDeviceMocker.__name__,
 ]

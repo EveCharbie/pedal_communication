@@ -15,14 +15,14 @@ def main():
     all_data = Data()
     cmp = 0
     while cmp < 100:
-        if cmp % 10 == 0:
-            logger.info(f"Collecting data... {cmp}/100")
-
         next_data = device.get_next_data()
         if next_data is None:
             continue
         all_data.add_data(next_data)
+
         cmp += 1
+        if cmp % 10 == 0:
+            logger.info(f"Collected data {cmp}/100")
     device.disconnect()
 
     all_data.show(Data.Type.FGx, show_now=True)
