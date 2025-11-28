@@ -8,21 +8,21 @@
             "name": "Main",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/runner/main.py",
+            "program": "${workspaceFolder}/example/main.py",
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": { "PYTHONPATH": "${workspaceFolder}" },
-            "cwd": "${workspaceFolder}/runner"
+            "cwd": "${workspaceFolder}/example"
         },
         {
             "name": "MockedDevice",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/runner/mocked_device.py",
+            "program": "${workspaceFolder}/example/mocked_device.py",
             "console": "integratedTerminal",
             "justMyCode": true,
             "env": { "PYTHONPATH": "${workspaceFolder}" },
-            "cwd": "${workspaceFolder}/runner"
+            "cwd": "${workspaceFolder}/example"
         },
     ]
 }
