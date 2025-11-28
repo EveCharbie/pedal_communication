@@ -1,31 +1,40 @@
 import time
 import logging
 
-from pedal_communication import TcpDevice, Data
+from pedal_communication import TcpDevice, Data, DataCollector
+
+
+def do_something(data_collector: DataCollector):
+    """
+    This is just a showcase of how to use the DataCollector and get the data from it
+    In this case we wait for 10 seconds, printing the number of collected data points every second
+    """
+    logger = logging.getLogger("do_something")
+    logger.info("Start doing something with the data collector...")
+    for _ in range(10):
+        time.sleep(1)
+        logger.info(f"Collected {len(data_collector.data.timestamp)} data points.")
+    logger.info(f"Collected data timestamps: {data_collector.data.timestamp}")
 
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(name)s: %(message)s")
-    logger = logging.getLogger(__name__)
 
+    # Connect to the device. If no real devices are available, one can run the script `mocked_device.py` to create a
+    # local TCP mock device that simulates a real pedal device.
     device = TcpDevice(host="localhost", port=6000)
     while not device.connect():
-        time.sleep(1)
+        time.sleep(0.1)
 
-    all_data = Data()
-    cmp = 0
-    while cmp < 100:
-        next_data = device.get_next_data()
-        if next_data is None:
-            continue
-        all_data.add_data(next_data)
+    data_collector = DataCollector(device)
 
-        cmp += 1
-        if cmp % 10 == 0:
-            logger.info(f"Collected data {cmp}/100")
-    device.disconnect()
+    # Either start a live plot...
+    data_collector.show_live(Data.Type.FGx)
 
-    all_data.show(Data.Type.FGx, show_now=True)
+    # ...or just start collecting data in the background
+    data_collector.start()
+    do_something(data_collector)
+    data_collector.stop()
 
 
 if __name__ == "__main__":

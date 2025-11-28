@@ -4,7 +4,8 @@ from pedal_communication.mockers import PedalDeviceMocker
 def main():
     mocker = PedalDeviceMocker()
 
-    for i in range(3):
+    while True:
+        # Restart the mocker indefinitely if it disconnects
         mocker.run()
 
 
