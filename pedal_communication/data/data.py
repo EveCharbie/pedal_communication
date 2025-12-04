@@ -10,22 +10,51 @@ from ..devices.generic_device import GenericDevice
 
 
 class DataType(Enum):
-    FGx = 0
-    FGy = 1
-    FGz = 2
-    FDx = 3
-    FDy = 4
-    FDz = 5
-    MGx = 6
-    MGy = 7
-    MGz = 8
-    MDx = 9
-    MDy = 10
-    MDz = 11
-    TG = 12
-    TD = 13
-    AG = 14
-    AD = 15
+    A0 = 0
+    A1 = 1
+    A2 = 2
+    A3 = 3
+    A4 = 4
+    A5 = 5
+    A6 = 6
+    A7 = 7
+    A8 = 8
+    A9 = 9
+    A10 = 10
+    A11 = 11
+    A12 = 12
+    A13 = 13
+    A14 = 14
+    A15 = 15
+    A16 = 16
+    A17 = 17
+    A18 = 18
+    A19 = 19
+    A20 = 20
+    A21 = 21
+    A22 = 22
+    A23 = 23
+    A24 = 24
+    A25 = 25
+    A26 = 26
+    A27 = 27
+    A28 = 28
+    A29 = 29
+    A30 = 30
+    A31 = 31
+    A32 = 32
+    A33 = 33
+    A34 = 34
+    A35 = 35
+    A36 = 36
+    A37 = 37
+    A38 = 38
+    A39 = 39
+    A40 = 40
+    A41 = 41
+    A42 = 42
+    A43 = 43
+    A44 = 44
 
 
 class Data:
@@ -47,7 +76,7 @@ class Data:
     @property
     @staticmethod
     def columns_count(self) -> int:
-        return 14
+        return 42
 
     def __getitem__(self, time_indices: int | slice | tuple | list) -> "Data":
         return Data(data=self._data[time_indices, :])

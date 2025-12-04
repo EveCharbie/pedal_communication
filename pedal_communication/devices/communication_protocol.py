@@ -34,9 +34,9 @@ class RequestProtocol:
             raise ValueError("Specify either command or request_type, not both.")
         if command is None:
             if request_type == self.RequestType.NORMAL:
-                self._commands = [[i, j] for i in range(15) for j in range(10)]
+                self._commands = [[i, j] for i in range(43) for j in range(10)]
             elif request_type == self.RequestType.FAST:
-                self._commands = [[i, j] for i in range(15) for j in range(10)]
+                self._commands = [[i, j] for i in range(43) for j in range(10)]
             else:
                 raise ValueError("Unsupported request type.")
         else:
