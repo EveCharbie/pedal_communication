@@ -108,6 +108,9 @@ class DataCollector(threading.Thread):
     def data(self) -> Data:
         return self._data
 
+    def clear(self):
+        self._data.clear()
+
     def start(self) -> None:
         self._is_running = True
         if not self.is_alive():
